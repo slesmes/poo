@@ -5,7 +5,11 @@
 package autonoma.edu.co.gui;
 
 import autonoma.edu.co.elementos.Lector;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JTable;
 
 /**
  *
@@ -27,6 +31,21 @@ public class ListaComandos extends javax.swing.JDialog {
         	fila[0]=comandoactual;
                 miModelo.addRow(fila);
         }
+        crear(lector);
+    }
+   
+    
+    public void crear(Lector lector){
+        tblComandos.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                int filaSeleccionada = tblComandos.getSelectedRow();
+                if (filaSeleccionada != -1) { 
+                    Object dato1 = tblComandos.getValueAt(filaSeleccionada, 0);
+                    lector.runCommand((String) dato1);
+                }
+            }
+        });
+
     }
 
 
@@ -46,8 +65,19 @@ public class ListaComandos extends javax.swing.JDialog {
             new String [] {
                 "comando"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblComandos);
+        if (tblComandos.getColumnModel().getColumnCount() > 0) {
+            tblComandos.getColumnModel().getColumn(0).setResizable(false);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

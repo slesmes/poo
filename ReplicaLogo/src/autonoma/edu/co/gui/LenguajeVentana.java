@@ -7,6 +7,7 @@ package autonoma.edu.co.gui;
 import autonoma.edu.co.elementos.Lector;
 import autonoma.edu.co.elementos.Patio;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import javax.swing.table.DefaultTableModel;
 
 /**

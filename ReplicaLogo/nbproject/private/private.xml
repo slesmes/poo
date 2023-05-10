@@ -3,22 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Documents/Downloads/NetBeansProjects/ReplicaLogo/src/autonoma/edu/co/elementos/Patio.java</file>
-            <file>file:/D:/Documents/Downloads/NetBeansProjects/ReplicaLogo/src/autonoma/edu/co/elementos/Backward.java</file>
-            <file>file:/D:/Documents/Downloads/NetBeansProjects/ReplicaLogo/src/autonoma/edu/co/gui/ListaComandos.java</file>
-            <file>file:/D:/Documents/Downloads/NetBeansProjects/ReplicaLogo/src/autonoma/edu/co/elementos/Tortuga.java</file>
-            <file>file:/D:/Documents/Downloads/NetBeansProjects/ReplicaLogo/src/autonoma/edu/co/elementos/LeftTurn.java</file>
-            <file>file:/D:/Documents/Downloads/NetBeansProjects/ReplicaLogo/src/autonoma/edu/co/elementos/Sprite.java</file>
-            <file>file:/D:/Documents/Downloads/NetBeansProjects/ReplicaLogo/src/autonoma/edu/co/elementos/Save.java</file>
-            <file>file:/D:/Documents/Downloads/NetBeansProjects/ReplicaLogo/src/autonoma/edu/co/elementos/Load.java</file>
-            <file>file:/D:/Documents/Downloads/NetBeansProjects/ReplicaLogo/src/autonoma/edu/co/elementos/Comando.java</file>
-            <file>file:/D:/Documents/Downloads/NetBeansProjects/ReplicaLogo/src/autonoma/edu/co/gui/LenguajeVentana.java</file>
-            <file>file:/D:/Documents/Downloads/NetBeansProjects/ReplicaLogo/src/autonoma/edu/co/elementos/SetColor.java</file>
-            <file>file:/D:/Documents/Downloads/NetBeansProjects/ReplicaLogo/src/autonoma/edu/co/elementos/Forward.java</file>
-            <file>file:/D:/Documents/Downloads/NetBeansProjects/ReplicaLogo/src/autonoma/edu/co/elementos/Home.java</file>
-            <file>file:/D:/Documents/Downloads/NetBeansProjects/ReplicaLogo/src/autonoma/edu/co/elementos/Lector.java</file>
-            <file>file:/D:/Documents/Downloads/NetBeansProjects/ReplicaLogo/src/autonoma/edu/co/elementos/Reset.java</file>
-            <file>file:/D:/Documents/Downloads/NetBeansProjects/ReplicaLogo/src/autonoma/edu/co/elementos/RightTurn.java</file>
+            <file>file:/D:/Documents/Desktop/santiago1/poo/ReplicaLogo/src/autonoma/edu/co/elementos/Lector.java</file>
+            <file>file:/D:/Documents/Desktop/santiago1/poo/ReplicaLogo/src/autonoma/edu/co/elementos/Tortuga.java</file>
+            <file>file:/D:/Documents/Desktop/santiago1/poo/ReplicaLogo/src/autonoma/edu/co/gui/LenguajeVentana.java</file>
+            <file>file:/D:/Documents/Desktop/santiago1/poo/ReplicaLogo/src/autonoma/edu/co/elementos/Rastro.java</file>
+            <file>file:/D:/Documents/Desktop/santiago1/poo/ReplicaLogo/src/autonoma/edu/co/elementos/Patio.java</file>
+            <file>file:/D:/Documents/Desktop/santiago1/poo/ReplicaLogo/src/autonoma/edu/co/gui/ListaComandos.java</file>
+            <file>file:/D:/Documents/Desktop/santiago1/poo/ReplicaLogo/src/autonoma/edu/co/elementos/Sprite.java</file>
         </group>
     </open-files>
 </project-private>

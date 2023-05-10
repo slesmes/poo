@@ -26,7 +26,6 @@ public class Patio extends Sprite {
     public void draw(Graphics g,ImageObserver lenguajeVentana) {
         getTortuga().draw(g,lenguajeVentana);
         g.setColor(Color.GREEN);
-
     }
 
     /**
