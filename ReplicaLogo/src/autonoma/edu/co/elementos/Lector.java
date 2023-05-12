@@ -5,7 +5,12 @@
 package autonoma.edu.co.elementos;
 
 import autonoma.edu.co.gui.LenguajeVentana;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Lector {
@@ -43,6 +48,8 @@ public class Lector {
             tortuga.setColor(parts[1]);
         }else if (parts[0].equals("repeat")){
             tortuga.repetir_movimientos(block,parts[1]);
+        }else if (parts[0].equals("load")|| parts[0].equals("l")){
+            leerArchivo(parts[1]);
         }else{
             System.out.println("Comando no reconocido");
         }
@@ -50,6 +57,20 @@ public class Lector {
 
     public ArrayList<String> getCommandHistory() {
         return commandHistory;
+    }
+    
+    public void leerArchivo (String nombreArchivo){        
+        try {
+            RandomAccessFile archivoComandos = new RandomAccessFile(nombreArchivo+".txt", "r");
+            Load load = new Load();
+            load.setMitorTortuga(tortuga);
+            load.ejecutar_comandos(archivoComandos);
+        } catch (FileNotFoundException ex) {
+            System.out.println("archivo no encontrado");
+        } catch (IOException ex) {
+            System.out.println("XD");
+        }
+        
     }
    
 }

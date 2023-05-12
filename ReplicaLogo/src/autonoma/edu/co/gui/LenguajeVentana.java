@@ -6,15 +6,14 @@ package autonoma.edu.co.gui;
 
 import autonoma.edu.co.elementos.Lector;
 import autonoma.edu.co.elementos.Patio;
+import autonoma.edu.co.elementos.drawable;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Daniel Lesmes
  */
-public class LenguajeVentana extends javax.swing.JFrame {
+public class LenguajeVentana extends javax.swing.JFrame implements drawable{
 
     private Patio patio;
     private Lector lector;
@@ -28,6 +27,7 @@ public class LenguajeVentana extends javax.swing.JFrame {
 
     public void setPatio(Patio patio) {
         this.patio = patio;
+        patio.setdrawable(this);
     }
     
     public void setLector(Lector lector){
@@ -102,7 +102,6 @@ public class LenguajeVentana extends javax.swing.JFrame {
         // TODO add your handling code here:
         String nombreComando=  txtNombreComando.getText();
         lector.runCommand(nombreComando);
-        repaint();
         txtNombreComando.setText("");
         
     }//GEN-LAST:event_btnAceptarActionPerformed
@@ -138,4 +137,9 @@ public class LenguajeVentana extends javax.swing.JFrame {
     private javax.swing.JButton btnmostarlistacomandos;
     private javax.swing.JTextField txtNombreComando;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void redraw() {
+       repaint();
+    }
 }

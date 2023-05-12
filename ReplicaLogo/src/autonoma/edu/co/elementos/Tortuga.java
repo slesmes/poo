@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.ImageObserver;
+import static java.lang.Compiler.command;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -16,8 +17,8 @@ import javax.swing.ImageIcon;
  *
  * @author Daniel Lesmes
  */
-public class Tortuga extends Sprite {
-
+public class Tortuga extends Sprite implements drawable {
+    private drawable drawable;
     private int angle;
     private int oldX;
     private int oldY;
@@ -58,6 +59,7 @@ public class Tortuga extends Sprite {
         x = newX;
         y = newY;
         addLine(oldX, oldY, x, y);
+        drawable.redraw();
     }
 
     public void backWard(int distance) {
@@ -106,6 +108,8 @@ public class Tortuga extends Sprite {
                 return "#9B9B9B";
             case "green":
                 return "#00FF00";
+            case "red":
+                return "#FF0000";
             default:
                 return "#000000";
         }
@@ -122,25 +126,32 @@ public class Tortuga extends Sprite {
 
     public void interpretar_movimiento(String comando) {
         String[] componentes = comando.toLowerCase().split(" ");
-        System.out.println(componentes[0]);
-        switch (componentes[0]) {
-            case "fd":
-                int distancia = Integer.parseInt(componentes[1]);
-                forward(distancia);
-                break;
-            case "bd":
-                int distancia2 = Integer.parseInt(componentes[1]);
-                backWard(distancia2);
-                break;
-            case "lt":
-                int angle = Integer.parseInt(componentes[1]);
-                leftTurn(angle);
-                break;
-            case "rt":
-                int angle2 = Integer.parseInt(componentes[1]);
-                rightTurn(angle2);
-                break;
+        if (componentes[0].equals("forward") || componentes[0].equals("fd")){
+            int distance = Integer.parseInt(componentes[1]);
+            forward(distance);
+        }else if(componentes[0].equals("backward") || componentes[0].equals("bd")){
+            int distance2 = Integer.parseInt(componentes[1]);
+            backWard(distance2);
+        }else if (componentes[0].equals("rightturn") || componentes[0].equals("rt")){
+            int grado = Integer.parseInt(componentes[1]);
+            rightTurn(grado);
+        }else if (componentes[0].equals("leftturn") || componentes[0].equals("lt")){
+            int grado2 = Integer.parseInt(componentes[1]);
+            leftTurn(grado2);
+        }else if (componentes[0].equals("setcolor") || componentes[0].equals("sc")){
+            setColor(componentes[1]);
+        }else if (componentes[0].equals("repeat")){
+            String block = comando.substring(comando.indexOf("[") + 1, comando.indexOf("]"));
+            repetir_movimientos(block,componentes[1]);
         }
 
+    }
+
+    @Override
+    public void redraw() {
+         drawable.redraw();
+    }
+    public void setdrawable(drawable drawable){
+        this.drawable = drawable;
     }
 }

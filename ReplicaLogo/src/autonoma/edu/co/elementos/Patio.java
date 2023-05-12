@@ -13,13 +13,15 @@ import java.awt.image.ImageObserver;
  *
  * @author Daniel Lesmes
  */
-public class Patio extends Sprite {
+public class Patio extends Sprite implements drawable{
     
     private Tortuga tortuga;
+    private drawable drawable;
     
     public Patio(int width, int height) {
         super(0, 0, width, height);
         tortuga = new Tortuga(width / 2, height / 2);
+        tortuga.setdrawable(this);
     }
 
     @Override
@@ -34,5 +36,12 @@ public class Patio extends Sprite {
     public Tortuga getTortuga() {
         return tortuga;
     }
-    
+
+    @Override
+    public void redraw() {
+       drawable.redraw();
+    }
+    public void setdrawable(drawable drawable){
+        this.drawable= drawable;
+    }
 }
