@@ -11,9 +11,11 @@ package autonoma.edu.co.elementos;
 public class Load extends Comando {
 
     @Override
-    public void execute(Tortuga tortuga) {
+    public void execute(String parametro) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+   
 
    
     

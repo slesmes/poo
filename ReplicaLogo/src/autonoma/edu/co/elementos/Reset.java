@@ -11,9 +11,11 @@ package autonoma.edu.co.elementos;
 public class Reset extends Comando {
 
     @Override
-    public void execute(Tortuga tortuga) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void execute(String parametro) {
+        
     }
+
+    
 
     
 }

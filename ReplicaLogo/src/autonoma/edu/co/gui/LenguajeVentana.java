@@ -46,7 +46,7 @@ public class LenguajeVentana extends javax.swing.JFrame {
 
         txtNombreComando = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
-        btnSubirArchivo = new javax.swing.JButton();
+        btnCargarArchivo = new javax.swing.JButton();
         btnmostarlistacomandos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,7 +58,7 @@ public class LenguajeVentana extends javax.swing.JFrame {
             }
         });
 
-        btnSubirArchivo.setText("Subir Archivo");
+        btnCargarArchivo.setText("Cargar Archivo");
 
         btnmostarlistacomandos.setText("mostrar lista ");
         btnmostarlistacomandos.addActionListener(new java.awt.event.ActionListener() {
@@ -77,10 +77,10 @@ public class LenguajeVentana extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnAceptar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSubirArchivo)
+                .addComponent(btnCargarArchivo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnmostarlistacomandos)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,7 +89,7 @@ public class LenguajeVentana extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombreComando, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAceptar)
-                    .addComponent(btnSubirArchivo)
+                    .addComponent(btnCargarArchivo)
                     .addComponent(btnmostarlistacomandos))
                 .addGap(94, 94, 94))
         );
@@ -134,7 +134,7 @@ public class LenguajeVentana extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
-    private javax.swing.JButton btnSubirArchivo;
+    private javax.swing.JButton btnCargarArchivo;
     private javax.swing.JButton btnmostarlistacomandos;
     private javax.swing.JTextField txtNombreComando;
     // End of variables declaration//GEN-END:variables

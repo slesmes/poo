@@ -11,5 +11,5 @@ package autonoma.edu.co.elementos;
  */
 public abstract class Comando {
 
-    public abstract void execute(Tortuga tortuga);
+    public abstract void execute(String parametro);
 }

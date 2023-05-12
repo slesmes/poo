@@ -29,10 +29,10 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnAceptar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnSubirArchivo" min="-2" max="-2" attributes="0"/>
+              <Component id="btnCargarArchivo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnmostarlistacomandos" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="111" max="32767" attributes="0"/>
+              <EmptySpace pref="103" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -43,7 +43,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtNombreComando" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="btnAceptar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnSubirArchivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnCargarArchivo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnmostarlistacomandos" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
@@ -62,9 +62,9 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAceptarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnSubirArchivo">
+    <Component class="javax.swing.JButton" name="btnCargarArchivo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Subir Archivo"/>
+        <Property name="text" type="java.lang.String" value="Cargar Archivo"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnmostarlistacomandos">

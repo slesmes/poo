@@ -4,9 +4,9 @@
  */
 package autonoma.edu.co.elementos;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.geom.Line2D;
 import java.awt.image.ImageObserver;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +22,7 @@ public class Tortuga extends Sprite {
     private int oldX;
     private int oldY;
     private List<Rastro> rastros;
+    private String ColorRastro = "000000";
 
     public Tortuga(int x, int y) {
         super(x - 25, y - 25, 50, 50);
@@ -34,7 +35,6 @@ public class Tortuga extends Sprite {
         ImageIcon imagen = new ImageIcon(getClass().getResource("tortugaLogo.png"));
         g.drawImage(imagen.getImage(), getX(), getY(), getWidth(), getHeight(), lenguajeVentana);
         Graphics2D g2d = (Graphics2D) g;
-        addLine(oldX, oldY, x, y);
         dibujarRastros(g);
     }
 
@@ -45,6 +45,7 @@ public class Tortuga extends Sprite {
 
     public void dibujarRastros(Graphics g) {
         for (Rastro actual : rastros) {
+            g.setColor(Color.decode(this.pasar_a_codigo()));
             g.drawLine(actual.getInitX(), actual.getInitY(), actual.getEndX(), actual.getEndY());
         }
     }
@@ -56,6 +57,7 @@ public class Tortuga extends Sprite {
         oldX = x;
         x = newX;
         y = newY;
+        addLine(oldX, oldY, x, y);
     }
 
     public void backWard(int distance) {
@@ -78,4 +80,67 @@ public class Tortuga extends Sprite {
         this.angle = angle % 360;
     }
 
+    public void setColor(String color) {
+        this.ColorRastro = color;
+    }
+
+    public String pasar_a_codigo() {
+        switch (this.ColorRastro) {
+            case "magenta":
+                return "#FF00FF";
+            case "orange":
+                return "#FF8000";
+            case "pink":
+                return "#FF0080";
+            case "white":
+                return "#FFFFFF";
+            case "yellow":
+                return "#FFFF00";
+            case "black":
+                return "#000000";
+            case "blue":
+                return "#0000FF";
+            case "cyan":
+                return "#00FFFF";
+            case "gray":
+                return "#9B9B9B";
+            case "green":
+                return "#00FF00";
+            default:
+                return "#000000";
+        }
+    }
+
+    public void repetir_movimientos(String comandos, String repeticiones) {
+        String[] instrucciones = comandos.split(";");
+        for (int j = 0; j < Integer.parseInt(repeticiones); j++) {
+            for (int i = 0; i < instrucciones.length; i++) {
+                interpretar_movimiento(instrucciones[i]);
+            }
+        }
+    }
+
+    public void interpretar_movimiento(String comando) {
+        String[] componentes = comando.toLowerCase().split(" ");
+        System.out.println(componentes[0]);
+        switch (componentes[0]) {
+            case "fd":
+                int distancia = Integer.parseInt(componentes[1]);
+                forward(distancia);
+                break;
+            case "bd":
+                int distancia2 = Integer.parseInt(componentes[1]);
+                backWard(distancia2);
+                break;
+            case "lt":
+                int angle = Integer.parseInt(componentes[1]);
+                leftTurn(angle);
+                break;
+            case "rt":
+                int angle2 = Integer.parseInt(componentes[1]);
+                rightTurn(angle2);
+                break;
+        }
+
+    }
 }

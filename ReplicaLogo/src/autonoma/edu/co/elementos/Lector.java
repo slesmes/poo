@@ -12,6 +12,7 @@ public class Lector {
     private Tortuga tortuga;
     private LenguajeVentana lenguajeVentana;
     private ArrayList<String> commandHistory;
+    private Comando comando;
 
     public Lector(Tortuga tortuga,LenguajeVentana lenguajeVentana) {
         this.tortuga = tortuga;
@@ -22,6 +23,10 @@ public class Lector {
     public void runCommand(String command) {
         commandHistory.add(command);
         String[] parts = command.toLowerCase().split(" ");
+        String block = null;
+        if (parts.length>2){
+        block = command.substring(command.indexOf("[") + 1, command.indexOf("]"));
+        }
         if (parts[0].equals("forward") || parts[0].equals("fd")){
             int distance = Integer.parseInt(parts[1]);
             tortuga.forward(distance);
@@ -34,6 +39,10 @@ public class Lector {
         }else if (parts[0].equals("leftturn") || parts[0].equals("lt")){
             int grado2 = Integer.parseInt(parts[1]);
             tortuga.leftTurn(grado2);
+        }else if (parts[0].equals("setcolor") || parts[0].equals("sc")){
+            tortuga.setColor(parts[1]);
+        }else if (parts[0].equals("repeat")){
+            tortuga.repetir_movimientos(block,parts[1]);
         }else{
             System.out.println("Comando no reconocido");
         }

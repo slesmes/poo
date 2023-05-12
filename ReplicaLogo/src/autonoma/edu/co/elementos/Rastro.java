@@ -21,6 +21,8 @@ public class Rastro {
         this.endY = endY;
     }
 
+    
+
     /**
      * @return the initX
      */
@@ -48,6 +50,43 @@ public class Rastro {
     public int getEndY() {
         return endY;
     }
+
+    /**
+     * @param initX the initX to set
+     */
+    public void setInitX(int initX) {
+        this.initX = initX;
+    }
+
+    /**
+     * @param initY the initY to set
+     */
+    public void setInitY(int initY) {
+        this.initY = initY;
+    }
+
+    /**
+     * @param endX the endX to set
+     */
+    public void setEndX(int endX) {
+        this.endX = endX;
+    }
+
+    /**
+     * @param endY the endY to set
+     */
+    public void setEndY(int endY) {
+        this.endY = endY;
+    }
+
+    /**
+     * @return the Color
+     */
+
+    /**
+     * @param Color the Color to set
+     */
+    
     
     
     
