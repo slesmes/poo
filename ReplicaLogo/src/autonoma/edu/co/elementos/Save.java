@@ -4,15 +4,25 @@
  */
 package autonoma.edu.co.elementos;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+
 /**
  *
  * @author Daniel Lesmes
  */
 public class Save extends Comando {
 
-    @Override
-    public void execute(String parametro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void guardar_archivo(String nombre,ArrayList<String> comandos) throws IOException {
+        RandomAccessFile nuevo_archivo = new RandomAccessFile(nombre+".txt", "rw");
+        nuevo_archivo.seek(nuevo_archivo.length());
+        for (String Comando_actual:comandos){
+            nuevo_archivo.writeBytes(Comando_actual);
+            nuevo_archivo.writeBytes(System.lineSeparator());
+        }
+        nuevo_archivo.close();
     }
 
     

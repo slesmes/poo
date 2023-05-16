@@ -10,23 +10,33 @@ import java.awt.Graphics;
 import java.awt.image.ImageObserver;
 
 /**
+ * Representa el lugar donde la tortuga se mueve y deja su rastro.
  *
- * @author Daniel Lesmes
+ * @author Santiago Lesmes Marín
+ * @author María José Muñoz Posada
+ * @version 1.0.0
  */
-public class Patio extends Sprite implements drawable{
-    
+public class Patio extends Sprite implements Dimensionable, drawable {
+
+    /**
+     *  Es la figuraGrafica que se mueve dentro de esta clase
+     */
     private Tortuga tortuga;
+    /**
+     *  Es la interfaz que permite redibujar los cambios 
+     */
     private drawable drawable;
-    
+
     public Patio(int width, int height) {
         super(0, 0, width, height);
         tortuga = new Tortuga(width / 2, height / 2);
+        tortuga.setArea(this);
         tortuga.setdrawable(this);
     }
 
     @Override
-    public void draw(Graphics g,ImageObserver lenguajeVentana) {
-        getTortuga().draw(g,lenguajeVentana);
+    public void draw(Graphics g, ImageObserver lenguajeVentana) {
+        getTortuga().draw(g, lenguajeVentana);
         g.setColor(Color.GREEN);
     }
 
@@ -39,9 +49,10 @@ public class Patio extends Sprite implements drawable{
 
     @Override
     public void redraw() {
-       drawable.redraw();
+        drawable.redraw();
     }
-    public void setdrawable(drawable drawable){
-        this.drawable= drawable;
+
+    public void setdrawable(drawable drawable) {
+        this.drawable = drawable;
     }
 }

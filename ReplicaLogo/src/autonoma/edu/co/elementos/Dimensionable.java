@@ -3,16 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
 package autonoma.edu.co.elementos;
+
 /**
- * Actualiza la pantalla
+ * Area máxima permitida para dibujar componentes
  *
  * @author Santiago Lesmes Marín
  * @author María José Muñoz Posada
  * @version 1.0.0
  */
-public interface drawable {
-    /**
-     *Permite actualizar un componente
-     */
-    public void redraw();
+public interface Dimensionable {
+
+    public int getX();
+
+    public int getY();
+
+    public int getWidth();
+
+    public int getHeight();
 }

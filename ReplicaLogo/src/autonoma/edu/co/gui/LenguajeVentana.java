@@ -46,7 +46,6 @@ public class LenguajeVentana extends javax.swing.JFrame implements drawable{
 
         txtNombreComando = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
-        btnCargarArchivo = new javax.swing.JButton();
         btnmostarlistacomandos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,8 +56,6 @@ public class LenguajeVentana extends javax.swing.JFrame implements drawable{
                 btnAceptarActionPerformed(evt);
             }
         });
-
-        btnCargarArchivo.setText("Cargar Archivo");
 
         btnmostarlistacomandos.setText("mostrar lista ");
         btnmostarlistacomandos.addActionListener(new java.awt.event.ActionListener() {
@@ -76,11 +73,9 @@ public class LenguajeVentana extends javax.swing.JFrame implements drawable{
                 .addComponent(txtNombreComando, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAceptar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCargarArchivo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnmostarlistacomandos)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(206, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,7 +84,6 @@ public class LenguajeVentana extends javax.swing.JFrame implements drawable{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombreComando, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAceptar)
-                    .addComponent(btnCargarArchivo)
                     .addComponent(btnmostarlistacomandos))
                 .addGap(94, 94, 94))
         );
@@ -133,7 +127,6 @@ public class LenguajeVentana extends javax.swing.JFrame implements drawable{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
-    private javax.swing.JButton btnCargarArchivo;
     private javax.swing.JButton btnmostarlistacomandos;
     private javax.swing.JTextField txtNombreComando;
     // End of variables declaration//GEN-END:variables

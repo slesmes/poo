@@ -5,14 +5,33 @@
 package autonoma.edu.co.elementos;
 
 /**
+ * Camino que deja la figura al realizar un movimiento.
  *
- * @author Daniel Lesmes
+ * @author Santiago Lesmes Marín
+ * @author María José Muñoz Posada
+ * @version 1.0.0
  */
 public class Rastro {
+    /**
+     * Coordenada en X de la ubicación inicial de la figura.
+     */
     private int  initX;
+    /**
+     * Coordenada en Y de la ubicación inicial de la figura.
+     */
     private int  initY;
+    /**
+     * Coordenada en X de la ubicación de la figura despues de un movimiento.
+     */
     private int  endX;
+    /**
+     * Coordenada en Y de la ubicación de la figura despues de un movimiento.
+     */
     private int endY;
+     /**
+     * Color por defecto del camino(negro)
+     */
+    private String Color="#000000";
 
     public Rastro(int initX, int initY, int endX, int endY) {
         this.initX = initX;
@@ -77,6 +96,20 @@ public class Rastro {
      */
     public void setEndY(int endY) {
         this.endY = endY;
+    }
+
+    /**
+     * @return the Color
+     */
+    public String getColor() {
+        return Color;
+    }
+
+    /**
+     * @param Color the Color to set
+     */
+    public void setColor(String Color) {
+        this.Color = Color;
     }
 
     /**

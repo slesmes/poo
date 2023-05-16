@@ -10,15 +10,9 @@ package autonoma.edu.co.elementos;
  */
 public class Home extends Comando {
 
-    @Override
-    public void execute(String parametro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void home() {
+        mitorTortuga.x = mitorTortuga.getPosicioninicialx();
+        mitorTortuga.y = mitorTortuga.getPosicioninicialy();
     }
 
-    
-
-    
-   
-    
-    
 }

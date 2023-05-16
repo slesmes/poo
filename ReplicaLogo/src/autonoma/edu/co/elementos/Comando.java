@@ -4,25 +4,23 @@
  */
 package autonoma.edu.co.elementos;
 
-
 /**
+ * Son las ordenes que la tortuga no puede ejecutar pero que el usuario puede solicitar.
  *
- * @author Daniel Lesmes
+ * @author Santiago Lesmes Marín
+ * @author María José Muñoz Posada
+ * @version 1.0.0
  */
 public abstract class Comando {
-    protected Tortuga mitorTortuga;
-    public abstract void execute(String parametro);
-
     /**
-     * @return the mitorTortuga
+     * Figura que se dibuja en el patio.
      */
+    protected Tortuga mitorTortuga;
+
     public Tortuga getMitorTortuga() {
         return mitorTortuga;
     }
 
-    /**
-     * @param mitorTortuga the mitorTortuga to set
-     */
     public void setMitorTortuga(Tortuga mitorTortuga) {
         this.mitorTortuga = mitorTortuga;
     }

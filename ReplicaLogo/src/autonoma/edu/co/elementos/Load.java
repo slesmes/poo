@@ -14,10 +14,7 @@ import java.io.RandomAccessFile;
  */
 public class Load extends Comando {
 
-    @Override
-    public void execute(String parametro) {
-        
-    }
+   
     public void ejecutar_comandos(RandomAccessFile archivo) throws IOException{
         String comando = archivo.readLine();
         while(comando != null){

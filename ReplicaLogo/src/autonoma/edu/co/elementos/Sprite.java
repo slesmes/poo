@@ -8,15 +8,31 @@ import java.awt.Graphics;
 import java.awt.image.ImageObserver;
 
 /**
+ * Es cualquier figura dibujable en la pantalla.
  *
- * @author Daniel Lesmes
+ * @author Santiago Lesmes Marín
+ * @author María José Muñoz Posada
+ * @version 1.0.0
  */
 public abstract class Sprite {
 
+    /**
+     * Coordenada en X de la ubicación del componente
+     */
     protected int x;
+    /**
+     * Coordenada en Y de la ubicación del componente
+     */
     protected int y;
+    /**
+     * Ancho de la ubicación del componente
+     */
     protected int width;
+    /**
+     * Alto de la ubicación del componente
+     */
     protected int height;
+    protected Dimensionable area;
 
     public Sprite(int x, int y, int width, int height) {
         setX(x);
@@ -25,7 +41,13 @@ public abstract class Sprite {
         setHeight(height);
     }
 
-    public abstract void draw(Graphics g,ImageObserver lenguajeVentana);
+    /**
+     *Diseña en la pantalla los compenentes.
+     *
+     * @param g La libreria Graphics que nos permite diseñar.
+     * @param lenguajeVentana Contexto en donde se dibujan los componentes
+     */
+    public abstract void draw(Graphics g, ImageObserver lenguajeVentana);
 
     public int getX() {
         return x;
@@ -59,5 +81,8 @@ public abstract class Sprite {
         this.height = height;
     }
 
+    public void setArea(Dimensionable area) {
+        this.area = area;
+    }
 
 }

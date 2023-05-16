@@ -7,8 +7,10 @@ package autonoma.edu.co.elementos;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.geom.AffineTransform;
+import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
-import static java.lang.Compiler.command;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -22,31 +24,37 @@ public class Tortuga extends Sprite implements drawable {
     private int angle;
     private int oldX;
     private int oldY;
+    private int posicioninicialx;
+    private int posicioninicialy;
     private List<Rastro> rastros;
     private String ColorRastro = "000000";
 
     public Tortuga(int x, int y) {
         super(x - 25, y - 25, 50, 50);
-        this.angle = 270;
+        this.angle=270;
         this.rastros = new ArrayList<>();
+        posicioninicialx=x-25;
+        posicioninicialy=y-25;
+        
     }
 
     @Override
     public void draw(Graphics g, ImageObserver lenguajeVentana) {
         ImageIcon imagen = new ImageIcon(getClass().getResource("tortugaLogo.png"));
-        g.drawImage(imagen.getImage(), getX(), getY(), getWidth(), getHeight(), lenguajeVentana);
-        Graphics2D g2d = (Graphics2D) g;
+        ImageIcon rotatedIcon = rotateImageIcon(imagen, angle);
+        g.drawImage(rotatedIcon.getImage(), getX(), getY(), getWidth(), getHeight(), lenguajeVentana); 
         dibujarRastros(g);
     }
 
     public void addLine(int x, int y, int oldx, int oldy) {
         Rastro line = new Rastro(oldx, oldy, x, y);
-        rastros.add(line);
+        line.setColor(ColorRastro);
+        getRastros().add(line);
     }
 
     public void dibujarRastros(Graphics g) {
-        for (Rastro actual : rastros) {
-            g.setColor(Color.decode(this.pasar_a_codigo()));
+        for (Rastro actual : getRastros()) {
+            g.setColor(Color.decode(this.pasar_a_codigo(actual.getColor())));
             g.drawLine(actual.getInitX(), actual.getInitY(), actual.getEndX(), actual.getEndY());
         }
     }
@@ -58,6 +66,19 @@ public class Tortuga extends Sprite implements drawable {
         oldX = x;
         x = newX;
         y = newY;
+        if (x<this.area.getX()){
+            x = this.area.getX();
+        }
+        if (y< this.area.getY()){
+            y= this.area.getY();
+        }
+        if(x+this.width>this.area.getWidth()){
+            x=this.area.getWidth()-this.width;
+        }
+        if(y+this.height>this.area.getHeight()){
+            y=this.area.getHeight()-this.height;
+        }
+        
         addLine(oldX, oldY, x, y);
         drawable.redraw();
     }
@@ -68,10 +89,12 @@ public class Tortuga extends Sprite implements drawable {
 
     public void leftTurn(int degrees) {
         angle = (angle - degrees + 360) % 360;
+        redraw();
     }
 
     public void rightTurn(int degrees) {
         angle = (angle + degrees) % 360;
+        redraw();
     }
 
     public int getAngle() {
@@ -82,12 +105,9 @@ public class Tortuga extends Sprite implements drawable {
         this.angle = angle % 360;
     }
 
-    public void setColor(String color) {
-        this.ColorRastro = color;
-    }
 
-    public String pasar_a_codigo() {
-        switch (this.ColorRastro) {
+    public String pasar_a_codigo(String color) {
+        switch (color) {
             case "magenta":
                 return "#FF00FF";
             case "orange":
@@ -153,5 +173,44 @@ public class Tortuga extends Sprite implements drawable {
     }
     public void setdrawable(drawable drawable){
         this.drawable = drawable;
+    }
+
+    public void setColor(String color) {
+        this.ColorRastro=color;
+    }
+
+    /**
+     * @return the posicioninicialx
+     */
+    public int getPosicioninicialx() {
+        redraw();
+        return posicioninicialx;
+    }
+
+    /**
+     * @return the posicioninicialy
+     */
+    public int getPosicioninicialy() {
+        redraw();
+        return posicioninicialy;
+    }
+
+    /**
+     * @return the rastros
+     */
+    public List<Rastro> getRastros() {
+        return rastros;
+    }
+    
+    public static ImageIcon rotateImageIcon(ImageIcon icon, int angle) {
+        Image image = icon.getImage();
+        BufferedImage bufferedImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = bufferedImage.createGraphics();
+        AffineTransform transform = new AffineTransform();
+        transform.rotate(Math.toRadians(angle), image.getWidth(null) / 2, image.getHeight(null) / 2);
+        g2d.drawImage(image, transform, null);
+        g2d.dispose();
+        ImageIcon rotatedIcon = new ImageIcon(bufferedImage);
+        return rotatedIcon;
     }
 }
