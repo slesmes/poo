@@ -5,11 +5,17 @@
 package autonoma.edu.co.elementos;
 
 /**
+ * Lleva a la tortuga a posición inicial
  *
- * @author Daniel Lesmes
+ * @author Santiago Lesmes Marín
+ * @author María José Muñoz Posada
+ * @version 1.0.0
  */
 public class Home extends Comando {
 
+    /**
+     * Mueve la tortuga a su posición inicial.
+     */
     public void home() {
         mitorTortuga.x = mitorTortuga.getPosicioninicialx();
         mitorTortuga.y = mitorTortuga.getPosicioninicialy();

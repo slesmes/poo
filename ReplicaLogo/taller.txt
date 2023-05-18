@@ -1,0 +1,9 @@
+fd 100
+forward 50
+rt 90
+fd 100
+bd 200
+sc magenta
+rt 90
+fd 100
+h
