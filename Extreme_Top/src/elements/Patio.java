@@ -22,7 +22,7 @@ public class Patio extends Sprite implements Dimensionable, Drawable {
     private player player;
     private LinkedList<Platform> plataformas;
     private int screenOffsetY = 0;
-    private boolean cambioPantalla=false;
+    private boolean cambioPantalla = false;
     /**
      * Es la interfaz que permite redibujar los cambios
      */
@@ -43,14 +43,18 @@ public class Patio extends Sprite implements Dimensionable, Drawable {
 
     @Override
     public void draw(Graphics g, ImageObserver Window) {
-        ImageIcon imagen = new ImageIcon(getClass().getResource("fondo.png"));
-        g.drawImage(imagen.getImage(), getX(), getY(), getWidth(), getHeight(), Window);
-        getPlayer().draw(g, Window);
-
-        for (Platform actual : getPlataformas()) {
-            g.fillRect(actual.getX(), actual.getY(), actual.getWidth(), actual.getHeight());
+        if (!cambioPantalla) {
+            ImageIcon imagen = new ImageIcon(getClass().getResource("fondo.png"));
+            g.drawImage(imagen.getImage(), getX(), getY(), getWidth(), getHeight(), Window);
+            getPlayer().draw(g, Window);
+            for (Platform actual : getPlataformas()) {
+                g.fillRect(actual.getX(), actual.getY(), actual.getWidth(), actual.getHeight());
+            }
+            chocoObstaculo();
+        } else if (cambioPantalla) {
+            render(g, Window);
         }
-        chocoObstaculo(g, Window);
+
     }
 
     public void handleKey(int key) {
@@ -104,26 +108,24 @@ public class Patio extends Sprite implements Dimensionable, Drawable {
         }
     }
 
-    public void chocoObstaculo(Graphics g, ImageObserver Window) {
+    public void chocoObstaculo() {
 
         int playerY = player.getY(); // Posición y del jugador
         int upperLimit = -5; // Límite superior antes de desplazar la pantalla
 
         if (playerY < upperLimit) {
             screenOffsetY = upperLimit - playerY;
-             setCambioPantalla(true);
-             render(g, Window);
+            cambioPantalla = true;
+            System.out.println(cambioPantalla);
         }
-       
-        System.out.println(cambioPantalla);
 
     }
 
-    public void render(Graphics g,ImageObserver Window) {
-        ImageIcon imagen = new ImageIcon(getClass().getResource("meteoro.png"));
+    public void render(Graphics g, ImageObserver Window) {
+        ImageIcon imagen = new ImageIcon(getClass().getResource("fondoDos.png"));
         g.drawImage(imagen.getImage(), getX(), -screenOffsetY, getWidth(), getHeight(), Window);
 
-        
+        /**
         for (Platform platform : getPlataformas()) {
             int platformX = platform.getX();
             int platformY = platform.getY() - screenOffsetY;
@@ -131,22 +133,18 @@ public class Patio extends Sprite implements Dimensionable, Drawable {
             int platformHeight = platform.getHeight();
             g.fillRect(platformX, platformY, platformWidth, platformHeight);
         }
+        * **/
         
-        
+        plataformas.clear();
+        generarPlataformas(15);
+
         // Dibuja el jugador con el desplazamiento
         int playerX = player.getX();
         int playerY = player.getY() - screenOffsetY;
-        ImageIcon imagenP = new ImageIcon(getClass().getResource("meteoro.png"));
-        g.drawImage(imagenP.getImage(), playerX, playerY, getWidth(), getHeight(), Window);
+        ImageIcon imagenP = new ImageIcon(getClass().getResource("king.png"));
+        g.drawImage(imagenP.getImage(), playerX, playerY, 75, 75, Window);
 
         // Dibuja el jugador con el desplazamiento
-    }
-
-    /**
-     * @param cambioPantalla the cambioPantalla to set
-     */
-    public void setCambioPantalla(boolean cambioPantalla) {
-        this.cambioPantalla = cambioPantalla;
     }
 
 }
