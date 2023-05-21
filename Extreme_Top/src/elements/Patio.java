@@ -47,9 +47,7 @@ public class Patio extends Sprite implements Dimensionable, Drawable {
             ImageIcon imagen = new ImageIcon(getClass().getResource("fondo.png"));
             g.drawImage(imagen.getImage(), getX(), getY(), getWidth(), getHeight(), Window);
             getPlayer().draw(g, Window);
-            for (Platform actual : getPlataformas()) {
-                g.fillRect(actual.getX(), actual.getY(), actual.getWidth(), actual.getHeight());
-            }
+            plataformas.forEach(plataforma->g.fillRect(plataforma.getX(), plataforma.getY(), plataforma.getWidth(), plataforma.getHeight()));
             chocoObstaculo();
         } else if (cambioPantalla) {
             render(g, Window);

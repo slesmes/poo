@@ -120,17 +120,9 @@ public class player extends Sprite implements Drawable {
         }
     };
 
-    public void update(int Alturaventana) {
+    public void update() {
         yspeed += GRAVITY;
         y += yspeed;
-
-        if (y > Alturaventana - this.height) {
-            y = Alturaventana - this.height;
-            yspeed = 0;
-        }
-        if(!ONGROUND){
-            yspeed+=GRAVITY;
-        }
     }
 
     public Rectangle getBounds() {
@@ -140,6 +132,7 @@ public class player extends Sprite implements Drawable {
     public void land(int platformY) {
         y = platformY - this.height;
         yspeed = 0;
+        ONGROUND=true;
     }
 
     /**

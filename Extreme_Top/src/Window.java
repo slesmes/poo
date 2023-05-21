@@ -85,7 +85,7 @@ public class Window extends javax.swing.JFrame implements Drawable, KeyListener 
         if (evt.getKeyCode() == KeyEvent.VK_LEFT
                 | evt.getKeyCode() == KeyEvent.VK_RIGHT) {
             patio.handleKey(evt.getKeyCode());
-            
+            time.start();
         }
         
        
@@ -99,13 +99,11 @@ public class Window extends javax.swing.JFrame implements Drawable, KeyListener 
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            patio.getPlayer().update(getHeight());
+            patio.getPlayer().update();
             patio.getPlayer().setONGROUND(false);
             for (Platform actual : patio.getPlataformas()) {
                 if (patio.getPlayer().getBounds().intersects(actual.getBounds())) {
                     patio.getPlayer().land(actual.getY());
-                    patio.getPlayer().setONGROUND(true);
-                    patio.getPlayer().setONGROUND(true);
                     time.stop();
                 }
             }
