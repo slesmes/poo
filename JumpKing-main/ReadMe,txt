@@ -1,0 +1,15 @@
+Bugs:
+-Sometimes the game crashes when it tries to start(I dooubt
+that it's going to happen,  but if it did, just restart)
+-The controls are not as responsive
+	-jump, left and right are sometimes none-responsive. Althoug the
+	sprite moves responsively. Sometime it takes a longer time for it to realize its
+	being pressed.
+	
+	
+	Features:
+	-THE continue feature is taken away.
+	-music is being added.
+
+there is a way to cheat in the gameplay class,line 16
+no additional download needed.
